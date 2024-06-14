@@ -1,6 +1,7 @@
 # tst-tab-count
 
-This Firefox addon, a helper addon to the TreeStyleTabs addon, displays the total count of tabs in the "new tab" button:
+This Firefox addon, a helper addon to the [TreeStyleTab](https://github.com/piroor/treestyletab/) addon, displays the
+total count of tabs in the "new tab" button:
 
 ![Screenshot](screenshot.png)
 
