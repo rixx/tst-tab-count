@@ -4,7 +4,7 @@ This Firefox addon, a helper addon to the TreeStyleTabs addon, displays the tota
 
 ![Screenshot](screenshot.png)
 
-Install it [from the releases page](/rixx/tst-tab-count/releases)!
+Install it [from the releases page](https://github.com/rixx/tst-tab-count/releases)!
 
 ### Developer
 
