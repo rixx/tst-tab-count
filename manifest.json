@@ -1,0 +1,21 @@
+{
+  "manifest_version": 2,
+  "name": "tst-tab-count",
+  "description": "Show tab count in 'new tab' button",
+  "version": "0.0.1",
+  "icons": {
+    "64": "icons/icon.png"
+  },
+  "background": {
+    "scripts": [
+      "tabCount.js"
+    ]
+  },
+  "page_action": {
+    "default_icon": {
+      "64": "icons/icon.png"
+    },
+    "default_popup": "pageAction/index.html",
+    "default_title": "tst-tab-count"
+  }
+}
