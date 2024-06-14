@@ -11,6 +11,7 @@ async function registerToTST() {
             icons: browser.runtime.getManifest().icons,
             listeningTypes: [
                 'sidebar-show',
+                'new-tab-processed',
                 'tabs-rendered',
                 'tree-attached',
                 'tree-detached',
@@ -53,6 +54,7 @@ function onMessageExternal(message, sender) {
             updateTabCount();
             break;
         case 'sidebar-show':
+        case 'new-tab-processed':
         case 'tabs-rendered':
         case 'tree-attached':
         case 'tree-detached':
@@ -84,3 +86,5 @@ async function updateTabCount() {
 registerToTST();
 updateTabCount();
 browser.runtime.onMessageExternal.addListener(onMessageExternal)
+browser.tabs.onCreated.addListener(updateTabCount)
+browser.tabs.onRemoved.addListener(updateTabCount)
