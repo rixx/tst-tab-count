@@ -63,23 +63,20 @@ function onMessageExternal(message, sender) {
 }
 
 async function updateTabCount() {
-    // run this for each window
     const tabCounts = []
     for (const window of await browser.windows.getAll()) {
-        let tabs = await browser.runtime.sendMessage(TST_ID, {
+        const tabs = await browser.runtime.sendMessage(TST_ID, {
             type:   'get-light-tree',
             window:   window.id,
             tabs: '*',  // flatten tabs
         });
-        tabCounts.push(tabs.length)
+        browser.runtime.sendMessage(TST_ID, {
+            type: 'set-extra-contents',
+            place:    'new-tab-button',
+            contents: `<span id="tst-tab-count-${window.id}">${tabs.length} tabs</span>`,
+            windowId:   window.id,
+        });
     }
-    const totalTabs = tabCounts.reduce((a, b) => a + b, 0)
-    const partialTabCount = tabCounts.join(' + ')
-    browser.runtime.sendMessage(TST_ID, {
-        type: 'set-extra-contents',
-        place:    'new-tab-button',
-        contents: `<span id="tst-tab-count-${window.id}">${totalTabs} tabs (${partialTabCount})</span>`,
-    });
 }
 
 
